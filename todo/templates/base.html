@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media-quires.css' %}">
+    <title>To-do</title>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header__logo">
+            <a href="{% url 'home' %}" class="header__logo-link">Pavel Grebenshikov</a>
+        </div>
+        <div class="header__name">
+            <a href="{% url 'home' %}" class="header__name-link">To-do</a>
+        </div>
+        <div class="header__icons">
+            <a href="#" class="header__icons-vk"><img src="{% static 'images/icons/vk_icon.png' %}" alt="vk"></a>
+            <a href="#" class="header__icons-github"><img src="{% static 'images/icons/github_icon.png' %}" alt="github"></a>
+            <a href="#" class="header__icons-email"><img src="{% static 'images/icons/email_icon.png' %}" alt="email"></a>
+            <a href="#" class="header__icons-linkedin"><img src="{% static 'images/icons/linkedin_icon.png' %}" alt="linkedin"></a>
+        </div>
+    </header>
+    
+    {% block content %}
+    {% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="auth">
+    <div class="auth__wrapper">
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="auth__wrapper-link">Выход</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="auth__wrapper-link">Вход</a>
+        {% endif %}
+    </div>
+</div>
+<div class="container">
+    {% if user.is_authenticated %}
+        <div class="container__text">
+            <h2>Ваш список дел</h2>
+        </div>
+        <div class="container__form">
+            <form action="{% url 'add-todo' %}" method="post">
+                {% csrf_token %}
+                <input type="text" class="container__form-input" name="content">
+                <input type="submit" class="container__form-btn" value="Добавить">
+            </form>
+        </div>
+
+        <div class="todolist">
+                <ul class="todolist__list">
+                    {% for i in all_items %}
+                        <div class="todolist__wrapper">
+                            <div class="todolist__content"><li>{{ i.content }}</li></div>
+                            <div class="todolist__date">{{ i.created_at }}</div>
+                            <div class="todolist__delete">
+                                <form action="{% url 'delete-todo' i.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input class="todolist__delete-btn" type="submit" value="">
+                                </form>  
+                            </div>
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% else %}
+        <div class="container__desc">
+            <h2>Авторизируйтесь, чтобы увидеть Ваш список дел.</h2>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}
