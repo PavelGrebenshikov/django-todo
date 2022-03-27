@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="register">
-        <p><a href="{% url 'registration' %}">Зарегистрироваться</a></p>
-    </div>
     <div class="container">
         <div class="container__form">
             <form action="{% url 'login' %}" method="post">
@@ -16,7 +13,10 @@
             </form>
         </div>
     </div>
-
+    <div class="register">
+        <p><a href="{% url 'registration' %}">Зарегистрироваться</a></p>
+        <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+    </div>
     <style>
         .container {
             width: 100%;
@@ -47,6 +47,10 @@
         .register {
             width: 100%;
             text-align: center;
+        }
+        .register > p {
+            padding: 0;
+            margin: 0;
         }
     </style>
 {% endblock content %}

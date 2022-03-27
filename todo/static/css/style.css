@@ -29,7 +29,7 @@ html, body {
     height: 50px;
     text-decoration: none;
     color: #fff;
-    padding: 5px 10px 5px 10px;
+    padding: 10px 10px 10px 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 3px #222;
 }
@@ -53,8 +53,7 @@ html, body {
 .header__icons > a > img {
     width: 50px;
     height: 50px;
-    padding-left: 14px;
-    padding-right: 14px;
+    margin: 0px 14px 0px 14px;
 }
 
 /* вход */
@@ -134,14 +133,14 @@ html, body {
 
 /*  */
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
     padding: 5px;
     border: 1px solid #999;
     border-radius: 3px;
     box-shadow: 0 0 1px 1px rgba(0,0,0,0);
     transition: .17s linear;
   }
-input[type="text"]:focus,  input[type="password"]:focus {
+input[type="text"]:focus,  input[type="password"]:focus, input[type="email"]:focus {
     outline: none;
     box-shadow: 0 0 1px 1px #4d90f0;
 }
@@ -202,6 +201,8 @@ input[type="text"]:focus::-webkit-input-placeholder {
 }
 .todolist__date {
     width: 50%;
+    display: flex;
+    align-items: center;
 }
 .todolist__delete {
     width: 50%;
@@ -216,7 +217,10 @@ input[type="text"]:focus::-webkit-input-placeholder {
     border: none;
     cursor: pointer;
 }
-
+.todolist__delete-btn:hover {
+    border-radius: 15px;
+    background-color: #db3f54;
+}
 
 /* errorlist */
 .errorlist {

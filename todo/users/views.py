@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 # Create your views here.
 
 from users.forms import UserCreationForm
@@ -25,7 +26,7 @@ class RegisterView(View):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return HttpResponseRedirect('home/')
+            return redirect('home')
         context = {
             'form': form
         }
